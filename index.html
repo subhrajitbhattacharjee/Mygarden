@@ -46,28 +46,26 @@
     <div class="container mx-auto flex justify-between items-center">
       <h1 class="text-white text-xl font-bold">My Terrace Garden</h1>
 
-      <!-- Hamburger Menu (for small screens) -->
-      <div class="block lg:hidden">
-        <button class="text-white">
-          <i class="fas fa-bars"></i> <!-- You can add an icon here -->
-        </button>
-      </div>
-
       <!-- Navigation Links -->
       <ul class="hidden lg:flex space-x-4 text-white">
         <li><a href="#home" class="hover:underline">Home</a></li>
         <li><a href="#gallery" class="hover:underline">Gallery</a></li>
+        <li><a href="#contact" class="hover:underline">Contact</a></li>
+        <li><a href="#about" class="hover:underline">About Us</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Welcome Section -->
+  <!-- Home Section -->
   <section id="home" class="py-20 text-center bg-green-100">
     <h2 class="text-4xl font-extrabold text-green-800">Welcome to My Green Paradise</h2>
     <p class="mt-4 text-xl text-gray-700">Here are some beautiful moments from my terrace garden.</p>
+    <footer class="bg-green-600 text-white text-center p-4 mt-8">
+      <p>&copy; 2025 My Terrace Garden | Copyright Reserved @subhrajitbhattacharjee</p>
+    </footer>
   </section>
 
-  <!-- Image Gallery -->
+  <!-- Gallery Section -->
   <section id="gallery" class="p-12 bg-white">
     <h3 class="text-2xl font-semibold text-center mb-8">Gallery</h3>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -86,32 +84,34 @@
       <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/5.jpg" 
            class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" 
            alt="Flower 5" onclick="openModal(this.src)">
-       <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/6.jpg" 
-           class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" 
-           alt="Flower 6" onclick="openModal(this.src)">
-       <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/7.jpg" 
-           class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" 
-           alt="Flower 7" onclick="openModal(this.src)">
-       <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/8.jpg" 
-           class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" 
-           alt="Flower 8" onclick="openModal(this.src)">
-        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/9.jpg" 
-           class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" 
-           alt="Flower 9" onclick="openModal(this.src)">
-        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/10.jpg" 
-           class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" 
-           alt="Flower 10" onclick="openModal(this.src)">
-        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/11.jpg" 
-           class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" 
-           alt="Flower 11" onclick="openModal(this.src)">
-       <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/12.jpg" 
-           class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" 
-           alt="Flower 12" onclick="openModal(this.src)">
-      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/13.jpg" 
-           class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" 
-           alt="Flower 13" onclick="openModal(this.src)">
-      
     </div>
+    <footer class="bg-green-600 text-white text-center p-4 mt-8">
+      <p>&copy; 2025 My Terrace Garden | Copyright Reserved @subhrajitbhattacharjee</p>
+    </footer>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-12 bg-green-100 text-center">
+    <h3 class="text-3xl font-semibold">Contact Us</h3>
+    <p class="mt-4 text-lg">Feel free to reach out for inquiries or more information.</p>
+    <form class="mt-6">
+      <input type="text" placeholder="Your Name" class="p-2 rounded-md border border-gray-300 mb-4 w-60">
+      <input type="email" placeholder="Your Email" class="p-2 rounded-md border border-gray-300 mb-4 w-60">
+      <textarea placeholder="Your Message" class="p-2 rounded-md border border-gray-300 mb-4 w-60"></textarea>
+      <button type="submit" class="bg-green-600 text-white p-2 rounded-md">Submit</button>
+    </form>
+    <footer class="bg-green-600 text-white text-center p-4 mt-8">
+      <p>&copy; 2025 My Terrace Garden | Copyright Reserved @subhrajitbhattacharjee</p>
+    </footer>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="py-12 bg-white text-center">
+    <h3 class="text-3xl font-semibold">About Us</h3>
+    <p class="mt-4 text-lg">We are passionate gardeners who love sharing our green space with the world.</p>
+    <footer class="bg-green-600 text-white text-center p-4 mt-8">
+      <p>&copy; 2025 My Terrace Garden | Copyright Reserved @subhrajitbhattacharjee</p>
+    </footer>
   </section>
 
   <!-- Modal for Fullscreen Image -->
@@ -119,11 +119,6 @@
     <span class="close" onclick="closeModal()">&times;</span>
     <img class="modal-content" id="modalImage">
   </div>
-
-  <!-- Footer -->
-  <footer class="bg-green-600 text-white text-center p-6 mt-8 shadow-lg">
-    <p class="text-lg">&copy; 2025 My Terrace Garden | Made with 🌿</p>
-  </footer>
 
   <!-- Script for Modal -->
   <script>
@@ -135,5 +130,6 @@
       document.getElementById('imgModal').style.display = "none";
     }
   </script>
+
 </body>
 </html>
