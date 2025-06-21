@@ -6,6 +6,44 @@
   <title>My Terrace Garden - Gallery</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    /* Modal Styling for Fullscreen Image */
+    .modal {
+      display: none; /* Hide the modal by default */
+      position: fixed;
+      z-index: 50;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.7); /* Black translucent background */
+      animation: fadeIn 0.5s ease-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain; /* Ensure the image is not stretched */
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
     /* Flexbox layout for Gallery */
     #gallery {
       display: flex;
@@ -62,18 +100,6 @@
       margin-top: 0;
       width: 100%;
       max-width: 200px;
-    }
-
-    /* Image Styling for Fullscreen (Without Modal) */
-    .fullscreen-image {
-      display: none;
-      width: 100%;
-      height: auto;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 100;
     }
 
     /* Responsive Layout for Smaller Screens */
@@ -142,43 +168,46 @@
 
       <!-- Cactus Gallery -->
       <div id="cactus" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 hidden gallery-category">
-        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/10.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Cactus 1" onclick="openImage(this)">
-        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/12.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Cactus 2" onclick="openImage(this)">
+        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/10.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Cactus 1" onclick="openModal(this)">
+        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/12.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Cactus 2" onclick="openModal(this)">
       </div>
 
       <!-- Others Gallery -->
       <div id="others" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 hidden gallery-category">
-        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/h-1.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Flower 4" onclick="openImage(this)">
-        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/h-2.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Flower 5" onclick="openImage(this)">
+        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/h-1.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Flower 4" onclick="openModal(this)">
+        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/h-2.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Flower 5" onclick="openModal(this)">
       </div>
 
       <!-- Fruits Gallery -->
       <div id="fruits" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 hidden gallery-category">
-        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/12" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Fruit 1" onclick="openImage(this)">
-        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/10.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Fruit 2" onclick="openImage(this)">
+        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/12" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Fruit 1" onclick="openModal(this)">
+        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/10.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Fruit 2" onclick="openModal(this)">
       </div>
     </div>
   </section>
 
-  <!-- Fullscreen Image (No Modal) -->
-  <img id="fullscreenImage" class="fullscreen-image" src="" alt="Fullscreen Image">
+  <!-- Modal for Fullscreen Image -->
+  <div id="imgModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
 
   <!-- Footer -->
   <footer class="bg-green-600 text-white text-center p-4 mt-8">
     <p>&copy; 2025 My Terrace Garden | Copyright Reserved @subhrajitbhattacharjee</p>
   </footer>
 
-  <!-- Script for Image -->
+  <!-- Script for Modal -->
   <script>
-    function openImage(image) {
-      const fullscreenImage = document.getElementById('fullscreenImage');
-      fullscreenImage.src = image.src; // Set the image source to the clicked image
-      fullscreenImage.style.display = 'block'; // Display the fullscreen image
+    function openModal(imageElement) {
+      const modal = document.getElementById('imgModal');
+      const modalImage = document.getElementById('modalImage');
+      modal.style.display = "flex"; /* Show the modal */
+      modalImage.src = imageElement.src; /* Set the image source to the clicked image */
     }
 
-    // Close the fullscreen image by clicking it
-    document.getElementById('fullscreenImage').onclick = function() {
-      this.style.display = 'none';
+    function closeModal() {
+      document.getElementById('imgModal').style.display = "none"; /* Hide the modal */
     }
 
     // Show specific gallery on click
