@@ -6,9 +6,8 @@
   <title>My Terrace Garden - Gallery</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Modal Styling for Fullscreen Image */
     .modal {
-      display: none; /* Hide the modal by default */
+      display: none;
       position: fixed;
       z-index: 50;
       left: 0;
@@ -16,24 +15,19 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(0, 0, 0, 0.7); /* Black translucent background */
+      background-color: rgba(0, 0, 0, 0.9);
       animation: fadeIn 0.5s ease-out;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
-
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-
     .modal-content {
+      margin: auto;
+      display: block;
       max-width: 90%;
       max-height: 90%;
-      object-fit: contain; /* Ensure the image is not stretched */
     }
-
     .close {
       position: absolute;
       top: 20px;
@@ -55,23 +49,20 @@
     .category-links {
       padding: 20px;
       background-color: white; /* White background for category links */
-      color: #38a169; /* Green font color */
+      color: #38a169; /* Matching green font color */
       border-right: 2px solid #ddd;
       display: flex;
       flex-direction: column;
       gap: 15px;
-      position: fixed; /* Fixed on the left */
-      top: 100px; /* Adjust the top position */
-      left: 0;
-      width: 220px; /* Width of the left panel */
-      z-index: 10;
+      position: relative;
+      width: 250px; /* Larger width for desktop */
     }
 
     .category-links button {
       font-size: 18px;
       padding: 15px 25px;
       background-color: white; /* White background */
-      color: #38a169; /* Green font color */
+      color: #38a169; /* Green font color (same as header/footer) */
       border: 2px solid #38a169; /* Green border */
       cursor: pointer;
       text-align: left;
@@ -89,7 +80,7 @@
 
     /* Gallery Section Styling */
     .gallery-container {
-      margin-left: 240px; /* Reduced margin-left for a smaller gap */
+      margin-left: 260px; /* Make space for the fixed category links */
       flex: 1;
       padding: 10px;
     }
@@ -144,6 +135,7 @@
     <!-- Category Links on the Left -->
     <div class="category-links">
       <button onclick="showGallery('adeniums')" class="text-xl font-bold">Adeniums</button>
+      <button onclick="showGallery('cactus')" class="text-xl font-bold">Cacti & Succulents</button>
       <button onclick="showGallery('others')" class="text-xl font-bold">Others</button>
       <button onclick="showGallery('fruits')" class="text-xl font-bold">Fruits</button>
     </div>
@@ -151,25 +143,28 @@
     <!-- Gallery Container -->
     <div class="gallery-container">
       <!-- Adenium Gallery -->
-      <div id="adeniums" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-9 gap-4 hidden gallery-category">
-        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/1.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 1" onclick="openModal(this.src)">
-        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/2.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 2" onclick="openModal(this.src)">
-        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/3.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 3" onclick="openModal(this.src)">
-        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/4.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 4" onclick="openModal(this.src)">
-        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/5.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 5" onclick="openModal(this.src)">
-        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/6.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 6" onclick="openModal(this.src)">
+      <div id="adeniums" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 hidden gallery-category">
+        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/1.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Flower 1" onclick="openModal(this.src)">
+        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/2.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Flower 2" onclick="openModal(this.src)">
+        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/3.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Flower 3" onclick="openModal(this.src)">
+      </div>
+
+      <!-- Cactus Gallery -->
+      <div id="cactus" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 hidden gallery-category">
+        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/10.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Cactus 1" onclick="openModal(this.src)">
+        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/12.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Cactus 2" onclick="openModal(this.src)">
       </div>
 
       <!-- Others Gallery -->
-      <div id="others" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-9 gap-4 hidden gallery-category">
-        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/h-1.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 4" onclick="openModal(this.src)">
-        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/h-2.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 5" onclick="openModal(this.src)">
+      <div id="others" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 hidden gallery-category">
+        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/h-1.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Flower 4" onclick="openModal(this.src)">
+        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/h-2.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Flower 5" onclick="openModal(this.src)">
       </div>
 
       <!-- Fruits Gallery -->
-      <div id="fruits" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-9 gap-4 hidden gallery-category">
-        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/fruit1.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Fruit 1" onclick="openModal(this.src)">
-        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/fruit2.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Fruit 2" onclick="openModal(this.src)">
+      <div id="fruits" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 hidden gallery-category">
+        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/12" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Fruit 1" onclick="openModal(this.src)">
+        <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/10.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Fruit 2" onclick="openModal(this.src)">
       </div>
     </div>
   </section>
@@ -188,7 +183,7 @@
   <!-- Script for Modal -->
   <script>
     function openModal(src) {
-      document.getElementById('imgModal').style.display = "flex";
+      document.getElementById('imgModal').style.display = "block";
       document.getElementById('modalImage').src = src;
     }
 
@@ -200,12 +195,15 @@
     function showGallery(galleryType) {
       // Hide all galleries first
       document.getElementById('adeniums').style.display = "none";
+      document.getElementById('cactus').style.display = "none";
       document.getElementById('others').style.display = "none";
       document.getElementById('fruits').style.display = "none";
 
       // Show the selected gallery
       if (galleryType === 'adeniums') {
         document.getElementById('adeniums').style.display = "grid";
+      } else if (galleryType === 'cactus') {
+        document.getElementById('cactus').style.display = "grid";
       } else if (galleryType === 'others') {
         document.getElementById('others').style.display = "grid";
       } else if (galleryType === 'fruits') {
