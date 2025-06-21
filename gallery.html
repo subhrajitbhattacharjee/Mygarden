@@ -60,19 +60,21 @@
 
     .category-links button {
       font-size: 18px;
-      padding: 10px;
+      padding: 15px 25px;
       background-color: white; /* White background */
       color: green; /* Green font color */
       border: 2px solid green; /* Green border */
       cursor: pointer;
       text-align: left;
-      transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+      border-radius: 30px; /* Rounded edges */
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* 3D effect */
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* Hover effect */
     .category-links button:hover {
       background-color: green; /* Green background on hover */
       color: white; /* White text on hover */
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4); /* Stronger 3D effect on hover */
     }
 
     /* Gallery Section Styling */
@@ -108,7 +110,7 @@
 
       .category-links button {
         font-size: 16px; /* Smaller font size on mobile */
-        padding: 8px; /* Smaller padding on mobile */
+        padding: 10px 20px; /* Adjust padding for mobile */
       }
     }
   </style>
