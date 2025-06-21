@@ -5,8 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Terrace Garden - Gallery</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 50;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+      animation: fadeIn 0.5s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body class="bg-white text-gray-800 font-sans">
+
   <!-- Navbar -->
   <nav class="bg-green-600 p-4 shadow-lg">
     <div class="container mx-auto flex justify-between items-center">
@@ -23,19 +57,72 @@
   <section id="gallery" class="p-12 bg-white">
     <h3 class="text-2xl font-semibold text-center mb-8">Gallery</h3>
 
+    <!-- Category Links -->
+    <div class="flex justify-center space-x-10 mb-12">
+      <button onclick="showGallery('adeniums')" class="text-xl font-bold text-green-600 hover:underline">Adeniums</button>
+      <button onclick="showGallery('others')" class="text-xl font-bold text-green-600 hover:underline">Others</button>
+      <button onclick="showGallery('fruits')" class="text-xl font-bold text-green-600 hover:underline">Fruits</button>
+    </div>
+
     <!-- Adenium Gallery -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/1.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 1">
-      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/2.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 2">
-      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/3.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 3">
-      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/4.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 4">
-      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/5.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 5">
+    <div id="adeniums" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 hidden">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/1.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 1" onclick="openModal(this.src)">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/2.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 2" onclick="openModal(this.src)">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/3.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 3" onclick="openModal(this.src)">
+    </div>
+
+    <!-- Others Gallery -->
+    <div id="others" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 hidden">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/4.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 4" onclick="openModal(this.src)">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/5.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 5" onclick="openModal(this.src)">
+    </div>
+
+    <!-- Fruits Gallery -->
+    <div id="fruits" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 hidden">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/fruit1.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Fruit 1" onclick="openModal(this.src)">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/fruit2.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Fruit 2" onclick="openModal(this.src)">
     </div>
   </section>
+
+  <!-- Modal for Fullscreen Image -->
+  <div id="imgModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
 
   <!-- Footer -->
   <footer class="bg-green-600 text-white text-center p-4 mt-8">
     <p>&copy; 2025 My Terrace Garden | Copyright Reserved @subhrajitbhattacharjee</p>
   </footer>
+
+  <!-- Script for Modal -->
+  <script>
+    function openModal(src) {
+      document.getElementById('imgModal').style.display = "block";
+      document.getElementById('modalImage').src = src;
+    }
+
+    function closeModal() {
+      document.getElementById('imgModal').style.display = "none";
+    }
+
+    // Show specific gallery on click
+    function showGallery(galleryType) {
+      // Hide all galleries first
+      document.getElementById('adeniums').style.display = "none";
+      document.getElementById('others').style.display = "none";
+      document.getElementById('fruits').style.display = "none";
+
+      // Show the selected gallery
+      if (galleryType === 'adeniums') {
+        document.getElementById('adeniums').style.display = "grid";
+      } else if (galleryType === 'others') {
+        document.getElementById('others').style.display = "grid";
+      } else if (galleryType === 'fruits') {
+        document.getElementById('fruits').style.display = "grid";
+      }
+    }
+  </script>
+
 </body>
 </html>
