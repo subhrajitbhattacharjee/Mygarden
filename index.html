@@ -37,9 +37,32 @@
       font-weight: bold;
       cursor: pointer;
     }
+
+    /* Flexbox layout for Home */
+    #home {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh; /* Ensure full screen height */
+      padding: 32px 20px; /* Add some padding */
+      overflow: hidden; /* Prevent scrolling */
+    }
+
+    /* Text shadow for better readability */
+    .home-text {
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      #home {
+        padding-top: 80px; /* Extra padding on mobile for better spacing */
+      }
+    }
   </style>
 </head>
-<body class="bg-white text-gray-800 font-sans">
+<body class="bg-white text-gray-800 font-sans overflow-hidden">
   <!-- Navbar -->
   <nav class="bg-green-600 p-4 shadow-lg">
     <div class="container mx-auto flex justify-between items-center">
@@ -53,9 +76,12 @@
   </nav>
 
   <!-- Home Section with Background Image -->
-  <section id="home" class="min-h-screen py-32 text-center bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/background-home.jpg');">
-    <h2 class="text-5xl font-extrabold text-white drop-shadow-lg">Welcome to My Green Paradise</h2>
-    <p class="mt-4 text-xl text-white drop-shadow-lg">Here are some beautiful moments from my terrace garden.</p>
+  <section id="home" class="min-h-screen relative bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/background-home.jpg');">
+    <!-- Home Text (Centered) -->
+    <div class="home-text text-center">
+      <h2 class="text-5xl font-extrabold">Welcome to My Green Paradise</h2>
+      <p class="mt-4 text-xl">Here are some beautiful moments from my terrace garden.</p>
+    </div>
   </section>
 
   <!-- Footer -->
