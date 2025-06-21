@@ -42,23 +42,18 @@
     #gallery {
       display: flex;
       min-height: 100vh;
-      margin-left: 240px; /* Make space for the fixed category links */
       padding: 20px;
     }
 
     /* Category Links on the Left */
     .category-links {
-      position: fixed;
-      top: 20%;
-      left: 0;
       padding: 20px;
       background-color: rgba(255, 255, 255, 0.8); /* Slight background for the category links */
       border-right: 2px solid #ddd;
       display: flex;
       flex-direction: column;
       gap: 15px;
-      z-index: 10;
-      width: 220px; /* Set width for the sidebar */
+      position: relative;
     }
 
     .category-links button {
@@ -77,7 +72,9 @@
 
     /* Gallery Section Styling */
     .gallery-container {
+      margin-left: 240px; /* Make space for the fixed category links */
       flex: 1;
+      padding: 10px;
     }
 
     .gallery-category {
@@ -121,7 +118,7 @@
 
   <!-- Gallery Section -->
   <section id="gallery" class="flex">
-    <!-- Fixed Category Links on the Left -->
+    <!-- Category Links on the Left -->
     <div class="category-links">
       <button onclick="showGallery('adeniums')" class="text-xl font-bold">Adeniums</button>
       <button onclick="showGallery('cactus')" class="text-xl font-bold">Cacti & Succulents</button>
