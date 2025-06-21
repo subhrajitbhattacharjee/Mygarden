@@ -43,8 +43,9 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 100vh; /* Ensure full screen height */
+      min-height: 100vh; /* Ensure full screen height */
       padding: 32px 20px; /* Add some padding */
+      overflow: hidden; /* Prevent scrolling */
     }
 
     /* Contact and About Us Section Styling */
@@ -61,7 +62,7 @@
     }
   </style>
 </head>
-<body class="bg-white text-gray-800 font-sans">
+<body class="bg-white text-gray-800 font-sans overflow-hidden">
   <!-- Navbar -->
   <nav class="bg-green-600 p-4 shadow-lg">
     <div class="container mx-auto flex justify-between items-center">
