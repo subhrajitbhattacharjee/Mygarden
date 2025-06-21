@@ -41,7 +41,7 @@
     /* Absolute positioning for About Us and Contact */
     .about-us {
       position: absolute;
-      bottom: 20px;
+      bottom: 60px; /* Move it upward */
       right: 20px;
       color: white;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -49,10 +49,24 @@
 
     .contact-info {
       position: absolute;
-      bottom: 20px;
+      bottom: 60px; /* Move it upward */
       left: 20px;
       color: white;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Background image cover on mobile devices */
+    #about {
+      background-size: cover;
+      background-position: center center;
+    }
+
+    /* Ensure the background image is responsive */
+    @media (max-width: 768px) {
+      #about {
+        background-position: center;
+        background-size: cover;
+      }
     }
   </style>
 </head>
