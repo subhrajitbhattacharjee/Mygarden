@@ -34,18 +34,53 @@
       padding: 32px 20px;
     }
 
-    /* Text shadow for better readability */
     .home-text {
       color: white;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
+    /* Footer style */
     footer {
       background-color: #38a169; /* Green background */
       color: white;
       padding: 20px;
       text-align: center;
+      font-size: 14px; /* Ensure the footer text is visible */
     }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 50;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+      animation: fadeIn 0.5s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
   </style>
 </head>
 <body class="bg-white text-gray-800 font-sans overflow-hidden">
