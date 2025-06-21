@@ -38,18 +38,30 @@
       cursor: pointer;
     }
 
-    /* Flexbox layout for Home */
+    /* Fullscreen layout with flexbox */
+    body, html {
+      height: 100%;
+      margin: 0;
+    }
+
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
     #home {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      min-height: calc(100vh - 80px); /* Ensure full screen height minus the footer height */
-      padding: 32px 20px; /* Add some padding */
-      background-image: url('https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/background.jpg');
-      background-size: cover; /* Ensure the background covers the screen */
-      background-position: center; /* Center the background */
+      min-height: 100vh; /* Ensure full screen height */
+      background-image: url('https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/background-home.jpg');
+      background-size: cover;
+      background-position: center;
       color: white;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      padding: 32px 20px;
     }
 
     /* Text shadow for better readability */
@@ -58,44 +70,45 @@
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
-    /* Footer Positioning */
     footer {
-      margin-top: auto; /* Ensure footer stays at the bottom */
-    }
-
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-      #home {
-        padding-top: 80px; /* Extra padding on mobile for better spacing */
-      }
+      background-color: #38a169; /* Green background */
+      color: white;
+      padding: 20px;
+      text-align: center;
     }
   </style>
 </head>
 <body class="bg-white text-gray-800 font-sans overflow-hidden">
-  <!-- Navbar -->
-  <nav class="bg-green-600 p-4 shadow-lg">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-white text-xl font-bold">My Terrace Garden</h1>
-      <ul class="flex space-x-4 text-white">
-        <li><a href="index.html" class="hover:underline">Home</a></li>
-        <li><a href="gallery.html" class="hover:underline">Gallery</a></li>
-        <li><a href="about.html" class="hover:underline">About Us</a></li>
-      </ul>
-    </div>
-  </nav>
 
-  <!-- Home Section with Background Image -->
-  <section id="home" class="flex justify-center items-center text-center py-32">
-    <div class="home-text">
-      <h2 class="text-5xl font-extrabold">Welcome to My Green Paradise</h2>
-      <p class="mt-4 text-xl">Here are some beautiful moments from my terrace garden.</p>
-    </div>
-  </section>
+  <!-- Content Wrapper to ensure footer stays at the bottom -->
+  <div class="content-wrapper">
 
-  <!-- Footer -->
-  <footer class="bg-green-600 text-white text-center p-4 mt-8">
-    <p>&copy; 2025 My Terrace Garden | Copyright Reserved @subhrajitbhattacharjee</p>
-  </footer>
+    <!-- Navbar -->
+    <nav class="bg-green-600 p-4 shadow-lg">
+      <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-white text-xl font-bold">My Terrace Garden</h1>
+        <ul class="flex space-x-4 text-white">
+          <li><a href="index.html" class="hover:underline">Home</a></li>
+          <li><a href="gallery.html" class="hover:underline">Gallery</a></li>
+          <li><a href="about.html" class="hover:underline">About Us</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Home Section with Background Image -->
+    <section id="home" class="flex justify-center items-center text-center py-32">
+      <div class="home-text">
+        <h2 class="text-5xl font-extrabold">Welcome to My Green Paradise</h2>
+        <p class="mt-4 text-xl">Here are some beautiful moments from my terrace garden.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 My Terrace Garden | Copyright Reserved @subhrajitbhattacharjee</p>
+    </footer>
+
+  </div>
 
 </body>
 </html>
