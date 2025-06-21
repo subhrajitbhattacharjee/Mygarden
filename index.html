@@ -5,6 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Terrace Garden - Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 50;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+      animation: fadeIn 0.5s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body class="bg-white text-gray-800 font-sans">
   <!-- Navbar -->
@@ -19,15 +52,16 @@
     </div>
   </nav>
 
-  <!-- Home Section -->
-  <section id="home" class="py-20 text-center bg-green-100">
-    <h2 class="text-4xl font-extrabold text-green-800">Welcome to My Green Paradise</h2>
-    <p class="mt-4 text-xl text-gray-700">Here are some beautiful moments from my terrace garden.</p>
+  <!-- Home Section with Background Image -->
+  <section id="home" class="py-32 text-center bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/background.jpg');">
+    <h2 class="text-5xl font-extrabold text-white drop-shadow-lg">Welcome to My Green Paradise</h2>
+    <p class="mt-4 text-xl text-white drop-shadow-lg">Here are some beautiful moments from my terrace garden.</p>
   </section>
 
   <!-- Footer -->
   <footer class="bg-green-600 text-white text-center p-4 mt-8">
     <p>&copy; 2025 My Terrace Garden | Copyright Reserved @subhrajitbhattacharjee</p>
   </footer>
+
 </body>
 </html>
