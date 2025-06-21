@@ -132,12 +132,15 @@
     function showGallery(galleryType) {
       // Hide all galleries first
       document.getElementById('adeniums').style.display = "none";
+       document.getElementById('cactus').style.display = "none";
       document.getElementById('others').style.display = "none";
       document.getElementById('fruits').style.display = "none";
 
       // Show the selected gallery
       if (galleryType === 'adeniums') {
         document.getElementById('adeniums').style.display = "grid";
+      } else if (galleryType === 'cactus') {
+        document.getElementById('cactus').style.display = "grid";
       } else if (galleryType === 'others') {
         document.getElementById('others').style.display = "grid";
       } else if (galleryType === 'fruits') {
