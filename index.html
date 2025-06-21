@@ -45,13 +45,22 @@
       justify-content: center;
       min-height: 100vh; /* Ensure full screen height */
       padding: 32px 20px; /* Add some padding */
-      overflow: hidden; /* Prevent scrolling */
+      background-image: url('https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/background.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     /* Text shadow for better readability */
     .home-text {
       color: white;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Footer Positioning */
+    footer {
+      margin-top: auto; /* Ensure footer stays at the bottom */
     }
 
     /* Responsive Styles */
@@ -76,9 +85,8 @@
   </nav>
 
   <!-- Home Section with Background Image -->
-  <section id="home" class="min-h-screen relative bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/background-home.jpg');">
-    <!-- Home Text (Centered) -->
-    <div class="home-text text-center">
+  <section id="home" class="flex justify-center items-center text-center py-32">
+    <div class="home-text">
       <h2 class="text-5xl font-extrabold">Welcome to My Green Paradise</h2>
       <p class="mt-4 text-xl">Here are some beautiful moments from my terrace garden.</p>
     </div>
