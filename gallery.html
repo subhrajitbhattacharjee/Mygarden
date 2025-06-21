@@ -42,6 +42,8 @@
     #gallery {
       display: flex;
       min-height: 100vh;
+      margin-left: 240px; /* Make space for the fixed category links */
+      padding: 20px;
     }
 
     /* Category Links on the Left */
@@ -56,6 +58,7 @@
       flex-direction: column;
       gap: 15px;
       z-index: 10;
+      width: 220px; /* Set width for the sidebar */
     }
 
     .category-links button {
@@ -74,8 +77,6 @@
 
     /* Gallery Section Styling */
     .gallery-container {
-      margin-left: 220px; /* Ensure the gallery images don’t overlap with the category links */
-      padding: 20px;
       flex: 1;
     }
 
@@ -83,11 +84,18 @@
       text-align: center;
     }
 
+    /* Ensure images are aligned at the top */
+    .gallery-category img {
+      margin-top: 0;
+      width: 100%;
+      max-width: 200px;
+    }
+
     /* Responsive Layout for Smaller Screens */
     @media (max-width: 768px) {
       .category-links {
-        top: 5%;
         left: 5%;
+        top: 5%;
         padding: 10px;
       }
 
@@ -113,7 +121,7 @@
 
   <!-- Gallery Section -->
   <section id="gallery" class="flex">
-    <!-- Category Links on the Left -->
+    <!-- Fixed Category Links on the Left -->
     <div class="category-links">
       <button onclick="showGallery('adeniums')" class="text-xl font-bold">Adeniums</button>
       <button onclick="showGallery('cactus')" class="text-xl font-bold">Cacti & Succulents</button>
