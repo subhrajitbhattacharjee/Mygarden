@@ -48,12 +48,14 @@
     /* Category Links on the Left */
     .category-links {
       padding: 20px;
-      background-color: rgba(255, 255, 255, 0.8); /* Slight background for the category links */
+      background-color: white; /* White background for category links */
+      color: green; /* Green font color */
       border-right: 2px solid #ddd;
       display: flex;
       flex-direction: column;
       gap: 15px;
       position: relative;
+      width: 250px; /* Larger width for desktop */
     }
 
     .category-links button {
@@ -72,7 +74,7 @@
 
     /* Gallery Section Styling */
     .gallery-container {
-      margin-left: 240px; /* Make space for the fixed category links */
+      margin-left: 260px; /* Make space for the fixed category links */
       flex: 1;
       padding: 10px;
     }
@@ -91,13 +93,19 @@
     /* Responsive Layout for Smaller Screens */
     @media (max-width: 768px) {
       .category-links {
-        left: 5%;
+        left: 0;
         top: 5%;
         padding: 10px;
+        width: 160px; /* Reduced width for mobile */
       }
 
       .gallery-container {
         margin-left: 0; /* No left margin on smaller screens */
+      }
+
+      .category-links button {
+        font-size: 16px; /* Smaller font size on mobile */
+        padding: 8px; /* Smaller padding on mobile */
       }
     }
   </style>
