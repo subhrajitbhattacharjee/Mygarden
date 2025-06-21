@@ -37,39 +37,10 @@
       font-weight: bold;
       cursor: pointer;
     }
-
-    /* Flexbox layout for Gallery */
-    #gallery {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 100vh; /* Ensure full screen height */
-      padding: 32px 20px; /* Add some padding */
-      overflow: hidden; /* Prevent scrolling */
-    }
-
-    /* Gallery Section Styling */
-    .gallery-category {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    /* Gallery Thumbnails Styling */
-    .gallery-category img {
-      margin-top: 0;
-      width: 100%;
-      max-width: 200px;
-    }
-
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-      #gallery {
-        padding-top: 80px; /* Extra padding on mobile for better spacing */
-      }
-    }
   </style>
 </head>
-<body class="bg-white text-gray-800 font-sans overflow-hidden">
+<body class="bg-white text-gray-800 font-sans">
+
   <!-- Navbar -->
   <nav class="bg-green-600 p-4 shadow-lg">
     <div class="container mx-auto flex justify-between items-center">
@@ -82,8 +53,10 @@
     </div>
   </nav>
 
-  <!-- Gallery Section with Background Image -->
-  <section id="gallery" class="min-h-screen relative bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/gallerybackground.jpg');">
+  <!-- Gallery Section -->
+  <section id="gallery" class="p-12 bg-white">
+    <h3 class="text-2xl font-semibold text-center mb-8">Gallery</h3>
+
     <!-- Category Links -->
     <div class="flex justify-center space-x-10 mb-12">
       <button onclick="showGallery('adeniums')" class="text-xl font-bold text-green-600 hover:underline">Adeniums</button>
@@ -92,22 +65,33 @@
     </div>
 
     <!-- Adenium Gallery -->
-    <div id="adeniums" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 hidden gallery-category">
-      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/1.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Adenium 1" onclick="openModal(this.src)">
-      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/2.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Adenium 2" onclick="openModal(this.src)">
-      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/3.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Adenium 3" onclick="openModal(this.src)">
+    <div id="adeniums" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-9 gap-4 hidden">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/1.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 1" onclick="openModal(this.src)">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/2.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 2" onclick="openModal(this.src)">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/3.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 3" onclick="openModal(this.src)">
+       <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/4.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 1" onclick="openModal(this.src)">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/5.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 2" onclick="openModal(this.src)">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/6.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 3" onclick="openModal(this.src)">
+       <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/7.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 1" onclick="openModal(this.src)">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/8.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 2" onclick="openModal(this.src)">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/9.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 3" onclick="openModal(this.src)">
+       <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/10.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 1" onclick="openModal(this.src)">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/11.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 1" onclick="openModal(this.src)">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/12.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 2" onclick="openModal(this.src)">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/13.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 3" onclick="openModal(this.src)">
     </div>
 
     <!-- Others Gallery -->
-    <div id="others" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 hidden gallery-category">
-      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/4.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Others 1" onclick="openModal(this.src)">
-      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/5.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Others 2" onclick="openModal(this.src)">
+    <div id="others" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-9 gap-4 hidden">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/h-1.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 4" onclick="openModal(this.src)">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/h-2.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 5" onclick="openModal(this.src)">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/h-3.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 4" onclick="openModal(this.src)">
     </div>
 
     <!-- Fruits Gallery -->
-    <div id="fruits" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 hidden gallery-category">
-      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/fruit1.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Fruit 1" onclick="openModal(this.src)">
-      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/fruit2.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer" alt="Fruit 2" onclick="openModal(this.src)">
+    <div id="fruits" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-9 gap-4 hidden">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/fruit1.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Fruit 1" onclick="openModal(this.src)">
+      <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/fruit2.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Fruit 2" onclick="openModal(this.src)">
     </div>
   </section>
 
