@@ -37,10 +37,31 @@
       font-weight: bold;
       cursor: pointer;
     }
+
+    /* Flexbox layout for Gallery */
+    #gallery {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100vh; /* Ensure full screen height */
+      padding: 32px 20px; /* Add some padding */
+      overflow: hidden; /* Prevent scrolling */
+    }
+
+    /* Gallery Section Styling */
+    .gallery-category {
+      text-align: center;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      #gallery {
+        padding-top: 80px; /* Extra padding on mobile for better spacing */
+      }
+    }
   </style>
 </head>
-<body class="bg-white text-gray-800 font-sans">
-
+<body class="bg-white text-gray-800 font-sans overflow-hidden">
   <!-- Navbar -->
   <nav class="bg-green-600 p-4 shadow-lg">
     <div class="container mx-auto flex justify-between items-center">
@@ -53,10 +74,8 @@
     </div>
   </nav>
 
-  <!-- Gallery Section -->
-  <section id="gallery" class="p-12 bg-white">
-    <h3 class="text-2xl font-semibold text-center mb-8">Gallery</h3>
-
+  <!-- Gallery Section with Background Image -->
+  <section id="gallery" class="min-h-screen relative bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/gallerybackground.jpg');">
     <!-- Category Links -->
     <div class="flex justify-center space-x-10 mb-12">
       <button onclick="showGallery('adeniums')" class="text-xl font-bold text-green-600 hover:underline">Adeniums</button>
@@ -64,6 +83,7 @@
       <button onclick="showGallery('fruits')" class="text-xl font-bold text-green-600 hover:underline">Fruits</button>
     </div>
 
+    <!-- Adenium Gallery -->
     <!-- Adenium Gallery -->
     <div id="adeniums" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-9 gap-4 hidden">
       <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/1.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Flower 1" onclick="openModal(this.src)">
@@ -94,6 +114,7 @@
       <img src="https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/fruit2.jpg" class="rounded-lg shadow hover:scale-105 transition-transform cursor-pointer w-32 h-32" alt="Fruit 2" onclick="openModal(this.src)">
     </div>
   </section>
+
 
   <!-- Modal for Fullscreen Image -->
   <div id="imgModal" class="modal">
@@ -134,6 +155,5 @@
       }
     }
   </script>
-
 </body>
 </html>
