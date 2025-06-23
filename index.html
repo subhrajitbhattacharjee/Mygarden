@@ -10,7 +10,6 @@
     body, html {
       height: 100%;
       margin: 0;
-      overflow-y: auto; /* Allow vertical scrolling */
     }
 
     .content-wrapper {
@@ -24,7 +23,7 @@
     #home {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: calc(100vh - 80px); /* Ensure full screen height minus footer */
       background-image: url('https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/background-home.jpg');
       background-size: cover; /* Ensure background covers full screen */
@@ -38,7 +37,7 @@
     .home-text {
       color: white;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      margin-bottom: 100px; /* Ensure space for bottom-right text */
+      margin-bottom: 50px; /* Ensure space for bottom-right text */
     }
 
     /* Position the text at the bottom-right */
@@ -50,7 +49,8 @@
       font-size: 18px;
       max-width: 300px;
       text-align: right;
-      overflow: auto; /* Allow vertical scroll if needed */
+      overflow-y: auto; /* Allow vertical scrolling for text */
+      max-height: 40%; /* Limit the height of the container */
     }
 
     /* Footer Style */
@@ -81,6 +81,7 @@
         bottom: 10px; /* Reduce bottom margin for mobile */
         font-size: 14px; /* Smaller text size on mobile */
         max-width: 250px; /* Ensure the text fits well on mobile */
+        max-height: 40%; /* Limit the height on mobile as well */
       }
     }
   </style>
