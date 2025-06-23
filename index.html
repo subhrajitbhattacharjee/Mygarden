@@ -59,6 +59,25 @@
       margin-top: auto; /* Keep footer at the bottom */
     }
 
+    /* Responsive Design for Mobile */
+    @media (max-width: 768px) {
+      #home {
+        padding: 20px; /* Adjust padding for mobile */
+      }
+
+      .home-text {
+        font-size: 24px; /* Smaller font size for home heading */
+        text-align: center; /* Center the main heading for mobile */
+      }
+
+      .home-text-bottom-right {
+        position: absolute;
+        right: 10px; /* Reduce right margin for mobile */
+        bottom: 10px; /* Reduce bottom margin for mobile */
+        font-size: 14px; /* Smaller text size on mobile */
+        max-width: 250px; /* Ensure the text fits well on mobile */
+      }
+    }
   </style>
 </head>
 <body class="bg-white text-gray-800 font-sans overflow-hidden">
