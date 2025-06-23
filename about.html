@@ -55,7 +55,7 @@
     .about-bengali {
       font-family: 'Noto Serif Bengali', serif;
       position: absolute;
-      top: 20px; /* Positioning at the top */
+      top: 20px; /* Position at the top */
       right: 20px; /* Align to the right */
       width: 45%; /* Take up 45% of the screen */
       background: rgba(0,0,0,0.5);
@@ -68,8 +68,23 @@
       text-align: right; /* Right align the Bengali text */
     }
 
-    /* About Us Section Styling */
+    /* About Us Section Styling (Top-left) */
     .about-us {
+      position: absolute;
+      top: 20px; /* Align to the top */
+      left: 20px; /* Align to the left */
+      width: 45%; /* Take up 45% of the screen */
+      background: rgba(0,0,0,0.5);
+      border-radius: 1rem;
+      padding: 1.5rem 1.5rem;
+      color: #fff;
+      font-size: 1.1rem;
+      line-height: 2;
+      font-weight: 500;
+    }
+
+    /* Contact Information (Bottom-left) */
+    .contact-info {
       position: absolute;
       bottom: 20px; /* Align to the bottom */
       left: 20px; /* Align to the left */
@@ -97,6 +112,13 @@
       }
 
       .about-us {
+        font-size: 1rem;
+        padding: 1rem;
+        top: 10px;
+        left: 10px;
+      }
+
+      .contact-info {
         font-size: 1rem;
         padding: 1rem;
         bottom: 10px;
@@ -136,7 +158,7 @@
     </div>
 
     <!-- Contact Information -->
-    <div class="contact-info mt-8">
+    <div class="contact-info">
       <h3 class="text-2xl font-semibold">Contact Information</h3>
       <p class="mt-4 text-lg">Feel free to reach out to Subhrajit for any inquiries.</p>
       <div class="mt-6 text-lg font-bold">
