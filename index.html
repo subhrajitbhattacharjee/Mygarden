@@ -10,6 +10,7 @@
     body, html {
       height: 100%;
       margin: 0;
+      overflow-y: auto; /* Allow vertical scrolling */
     }
 
     .content-wrapper {
@@ -40,6 +41,7 @@
       margin-bottom: 100px; /* Ensure space for bottom-right text */
     }
 
+    /* Position the text at the bottom-right */
     .home-text-bottom-right {
       position: absolute;
       right: 20px;
@@ -48,6 +50,7 @@
       font-size: 18px;
       max-width: 300px;
       text-align: right;
+      overflow: auto; /* Allow vertical scroll if needed */
     }
 
     /* Footer Style */
