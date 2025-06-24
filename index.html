@@ -3,127 +3,176 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Terrace Garden - Home</title>
+  <title>My Terrace Garden - About Us</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Full Page Layout */
-    body, html {
-      height: 100%;
-      margin: 0;
+    body {
+      min-height: 100vh;
+      overflow-y: auto;
+      background: #fff;
     }
-
-    .content-wrapper {
+    .side-panel {
+      padding: 20px;
+      background-color: white;
+      color: #38a169;
+      border-right: 2px solid #ddd;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      min-height: 100vh; /* Ensure full screen height */
-    }
-
-    /* Home Section with Background Image */
-    #home {
-      display: flex;
-      flex-direction: column;
+      gap: 25px;
+      width: 250px;
+      min-width: 180px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      align-items: flex-start;
       justify-content: flex-start;
-      min-height: calc(100vh - 80px); /* Ensure full screen height minus footer */
-      background-image: url('https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/background-home.jpg');
-      background-size: cover; /* Ensure background covers full screen */
-      background-position: center; /* Center the image */
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      padding: 32px 20px;
+    }
+    .side-panel h2 {
+      color: #38a169;
+      font-size: 1.7rem;
+      font-weight: bold;
+    }
+    .side-panel a, .side-panel span {
+      display: block;
+      margin: 0.6rem 0;
+      text-decoration: none;
+      color: #38a169;
+      font-weight: bold;
+      transition: color 0.2s;
+      padding: 0.5rem 0.7rem;
+      border-radius: 20px;
+    }
+    .side-panel a:hover {
+      background: #38a169;
+      color: #fff;
+    }
+    .main-about-content {
+      flex: 1;
+      padding: 30px 5vw;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      background: url('https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/background-about.jpg') center/cover no-repeat;
+      min-height: 100vh;
       position: relative;
     }
-
-    .home-text {
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      margin-bottom: 50px; /* Ensure space for bottom-right text */
-    }
-
-    /* Position the text at the bottom-right */
-    .home-text-bottom-right {
-      position: absolute;
-      right: 20px;
-      bottom: 20px;
-      font-style: italic;
-      font-size: 18px;
-      max-width: 300px;
+    .about-bengali {
+      font-family: 'Noto Serif Bengali', serif;
+      background: rgba(0,0,0,0.5);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      color: #fff;
+      font-size: 1.12rem;
+      line-height: 2;
+      font-weight: 500;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: 0;
       text-align: right;
-      overflow-y: auto; /* Allow vertical scrolling for text */
-      max-height: 40%; /* Limit the height of the container */
+      box-shadow: 0 4px 16px 2px rgba(0,0,0,0.07);
     }
-
-    /* Footer Style */
-    footer {
-      background-color: #38a169; /* Green background */
-      color: white;
-      padding: 20px;
-      text-align: center;
-      font-size: 16px; /* Ensure the footer text is readable */
-      margin-top: auto; /* Keep footer at the bottom */
+    .about-eng {
+      background: rgba(0,0,0,0.45);
+      border-radius: 1rem;
+      padding: 1.5rem 1.5rem;
+      color: #fff;
+      font-size: 1.07rem;
+      max-width: 600px;
+      font-weight: 500;
+      box-shadow: 0 4px 16px 2px rgba(0,0,0,0.07);
     }
-
-    /* Responsive Design for Mobile */
+    .contact-eng {
+      background: rgba(0,0,0,0.45);
+      border-radius: 1rem;
+      padding: 1.5rem 1.5rem;
+      color: #fff;
+      font-size: 1.07rem;
+      max-width: 600px;
+      font-weight: 500;
+      box-shadow: 0 4px 16px 2px rgba(0,0,0,0.07);
+    }
+    /* Responsive layout */
+    @media (max-width: 1024px) {
+      .main-about-content { padding: 24px 1vw; }
+      .side-panel { width: 150px; min-width: 120px; font-size: 1rem; }
+    }
     @media (max-width: 768px) {
-      #home {
-        padding: 20px; /* Adjust padding for mobile */
+      .main-about-content { padding: 16px 2vw; }
+      .side-panel { width: 100px; min-width: 90px; font-size: 0.95rem; padding: 10px;}
+      .about-bengali, .about-eng, .contact-eng {
+        font-size: 0.98rem;
+        padding: 1rem 0.6rem;
+        margin: 0.5rem 0;
+        min-width: unset;
+        max-width: unset;
       }
-
-      .home-text {
-        font-size: 24px; /* Smaller font size for home heading */
-        text-align: center; /* Center the main heading for mobile */
-        margin-bottom: 150px; /* More space for bottom-right text */
-      }
-
-      .home-text-bottom-right {
-        position: absolute;
-        right: 10px; /* Reduce right margin for mobile */
-        bottom: 10px; /* Reduce bottom margin for mobile */
-        font-size: 14px; /* Smaller text size on mobile */
-        max-width: 250px; /* Ensure the text fits well on mobile */
-        max-height: 40%; /* Limit the height on mobile as well */
-      }
+    }
+    @media (max-width: 600px) {
+      .main-about-content { padding: 10px 0.2vw; }
+      .side-panel { display: none; }
     }
   </style>
 </head>
-<body class="bg-white text-gray-800 font-sans overflow-hidden">
+<body>
 
-  <!-- Content Wrapper -->
-  <div class="content-wrapper">
+  <!-- Navbar -->
+  <nav class="bg-green-600 p-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-white text-xl font-bold">My Terrace Garden</h1>
+      <ul class="flex space-x-4 text-white">
+        <li><a href="index.html" class="hover:underline">Home</a></li>
+        <li><a href="gallery.html" class="hover:underline">Gallery</a></li>
+        <li><a href="about.html" class="hover:underline">About Us</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- Navbar -->
-    <nav class="bg-green-600 p-4 shadow-lg">
-      <div class="container mx-auto flex justify-between items-center">
-        <h1 class="text-white text-xl font-bold">My Terrace Garden</h1>
-        <ul class="flex space-x-4 text-white">
-          <li><a href="index.html" class="hover:underline">Home</a></li>
-          <li><a href="gallery.html" class="hover:underline">Gallery</a></li>
-          <li><a href="about.html" class="hover:underline">About Us</a></li>
-        </ul>
+  <!-- About Us Section -->
+  <div style="display:flex;min-height:calc(100vh - 88px);">
+    <!-- Left Panel -->
+    <div class="side-panel">
+      <h2>About</h2>
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <span>About Us</span>
+      <hr style="width:80%;border-color:#38a169;">
+      <div>
+        <div class="font-bold">Contact</div>
+        <div>Subhrajit</div>
+        <div class="text-xs" style="color:#111;">+91 98360 86789</div>
+        <a href="mailto:subhrajitb@gmail.com" style="font-size:0.92rem;color:#38a169;">subhrajitb@gmail.com</a>
       </div>
-    </nav>
+    </div>
 
-    <!-- Home Section with Background Image -->
-    <section id="home">
-      <div class="home-text">
-        <h2 class="text-5xl font-extrabold">Welcome to My Green Paradise</h2>
-        <p class="mt-4 text-xl">Here are some beautiful moments from my terrace garden.</p>
+    <!-- Main About Content -->
+    <div class="main-about-content">
+      <div class="about-bengali">
+        আমরা প্রকৃতি থেকে তো নিয়েই গেলাম সারাজীবন। আলো, হাওয়া, জল, অক্সিজেন। নিতে নিতে ফাঁকা হয়ে যাচ্ছে সবুজ। কমে আসছে জল। বাড়ছে দূষণ, কংক্রিটের জঙ্গল। প্রগতির হাত ধরেছি। কিন্তু প্রকৃতি?<br><br>
+        আমরা, যারা বিশ্বাস করি পৃথিবীকে বাসযোগ্য করে তোলার দায় আমাদের প্রত্যেকের — এবার সময় এসেছে কিছু ফেরত দেওয়ার।  এই সবুজ ধংস করে ধূসর বানানোর সময়ে আমাদের কংক্রিটের ছাদকে করে তুলেছি সবুজ। গড়েছি বাগান। সেই গাছে ফলেছে ফল, ফুটেছে ফুল, গজিয়েছে নতুন পাতা। মাথা তুলছে, হাসছে, খেলা করছে তারা। পাখিরা আসছে, থাকছে, খাচ্ছে। প্রকৃতিকে আমার সামান্য ক্ষমতায় কিছুটা সবুজ ফিরিয়ে দেওয়ার অঙ্গীকার নিয়েছি। পারবই এ বিশ্বাস আছে।<br><br>
+        আপনাদেরও আমন্ত্রণ রইল আমার ছোট্ট ছাদের বাগানে
       </div>
 
-      <!-- Text at Right-Bottom of the Home Section -->
-      <div class="home-text-bottom-right">
-        <p>Gardening is just not a hobby for me — it’s a deep-rooted passion that continues to shape how I live, breathe, and think.</p>
-        <p>The act of nurturing a plant — watering it, pruning it, protecting it from pests — connects me deeply with nature and myself.</p>
-        <p>Gardening isn’t just something I do; it’s become a part of who I am. It reminds me every day that beauty takes time, growth requires care, and sometimes, the best things in life are grown slowly.</p>
+      <div class="about-eng">
+        <h3 class="text-3xl font-extrabold mb-2">About Us</h3>
+        <p class="mt-2 text-xl font-semibold">We are passionate gardeners who love sharing our green space with the world.</p>
       </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 My Terrace Garden | Copyright Reserved @subhrajitbhattacharjee</p>
-    </footer>
-
+      <div class="contact-eng">
+        <h3 class="text-2xl font-semibold mb-2">Contact Information</h3>
+        <p class="mt-2 text-lg">Feel free to reach out to Subhrajit for any inquiries.</p>
+        <div class="mt-4 text-lg font-bold">
+          <div>Subhrajit</div>
+          <div class="text-base font-normal">Phone: +91 98360 86789</div>
+          <div class="text-base font-normal">Email: <a href="mailto:subhrajitb@gmail.com" class="text-blue-300 underline">subhrajitb@gmail.com</a></div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="bg-green-600 text-white text-center p-4 mt-8">
+    <p>&copy; 2025 My Terrace Garden | Copyright Reserved @subhrajitbhattacharjee</p>
+  </footer>
 
 </body>
 </html>
