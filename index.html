@@ -5,125 +5,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Terrace Garden - Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Full Page Layout */
-    body, html {
-      height: 100%;
-      margin: 0;
+    body {
+      min-height: 100vh;
+      overflow-y: auto;
     }
-
-    .content-wrapper {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 100vh; /* Ensure full screen height */
-    }
-
-    /* Home Section with Background Image */
-    #home {
+    .home-section {
+      position: relative;
+      min-height: calc(100vh - 88px); /* Navbar + Footer heights */
+      background: url('https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/background-home.jpg') center/cover no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      min-height: calc(100vh - 80px); /* Ensure full screen height minus footer */
-      background-image: url('https://raw.githubusercontent.com/subhrajitbhattacharjee/Mygarden/main/background-home.jpg');
-      background-size: cover; /* Ensure background covers full screen */
-      background-position: center; /* Center the image */
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      padding: 32px 20px;
-      position: relative;
     }
-
-    .home-text {
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      margin-bottom: 50px; /* Ensure space for bottom-right text */
-    }
-
-    /* Position the text at the bottom-right */
-    .home-text-bottom-right {
+    .welcome-block {
       position: absolute;
-      right: 20px;
-      bottom: 20px;
-      font-style: italic;
-      font-size: 18px;
-      max-width: 300px;
+      top: 30px;
+      left: 30px;
+      width: 35%;
+      min-width: 260px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      color: #fff;
+      font-weight: 500;
+      box-shadow: 0 4px 16px 2px rgba(0,0,0,0.10);
+    }
+    .garden-info-block {
+      position: absolute;
+      left: 30px;
+      bottom: 30px;
+      width: 35%;
+      min-width: 260px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      color: #fff;
+      font-weight: 500;
+      box-shadow: 0 4px 16px 2px rgba(0,0,0,0.10);
+    }
+    .quote-block {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      width: 35%;
+      min-width: 220px;
+      font-family: 'Noto Serif Bengali', serif;
+      background: rgba(0,0,0,0.55);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      color: #fff;
+      font-size: 1.12rem;
+      line-height: 2;
+      font-weight: 500;
       text-align: right;
-      overflow-y: auto; /* Allow vertical scrolling for text */
-      max-height: 40%; /* Limit the height of the container */
+      box-shadow: 0 4px 16px 2px rgba(0,0,0,0.07);
+      max-height: 60vh;
+      overflow-y: auto;
+      font-style: italic;
     }
-
-    /* Footer Style */
-    footer {
-      background-color: #38a169; /* Green background */
-      color: white;
-      padding: 20px;
-      text-align: center;
-      font-size: 16px; /* Ensure the footer text is readable */
-      margin-top: auto; /* Keep footer at the bottom */
+    /* Responsive for tablets */
+    @media (max-width: 1024px) {
+      .welcome-block, .garden-info-block { width: 45%; min-width: 180px; padding: 1rem;}
+      .quote-block { width: 45%; min-width: 150px; padding: 1rem;}
     }
-
-    /* Responsive Design for Mobile */
+    /* Responsive for small screens */
     @media (max-width: 768px) {
-      #home {
-        padding: 20px; /* Adjust padding for mobile */
+      .welcome-block, .garden-info-block, .quote-block {
+        position: static;
+        width: 95vw;
+        min-width: unset;
+        margin: 12px auto;
+        box-sizing: border-box;
+        left: unset;
+        right: unset;
+        top: unset;
+        bottom: unset;
+        text-align: left;
       }
-
-      .home-text {
-        font-size: 24px; /* Smaller font size for home heading */
-        text-align: center; /* Center the main heading for mobile */
-        margin-bottom: 150px; /* More space for bottom-right text */
-      }
-
-      .home-text-bottom-right {
-        position: absolute;
-        right: 10px; /* Reduce right margin for mobile */
-        bottom: 10px; /* Reduce bottom margin for mobile */
-        font-size: 14px; /* Smaller text size on mobile */
-        max-width: 250px; /* Ensure the text fits well on mobile */
-        max-height: 40%; /* Limit the height on mobile as well */
+      .home-section {
+        min-height: unset;
+        padding-bottom: 0;
       }
     }
   </style>
 </head>
-<body class="bg-white text-gray-800 font-sans overflow-hidden">
+<body>
+  <!-- Navbar -->
+  <nav class="bg-green-600 p-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-white text-xl font-bold">My Terrace Garden</h1>
+      <ul class="flex space-x-4 text-white">
+        <li><a href="index.html" class="hover:underline">Home</a></li>
+        <li><a href="gallery.html" class="hover:underline">Gallery</a></li>
+        <li><a href="about.html" class="hover:underline">About Us</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <!-- Content Wrapper -->
-  <div class="content-wrapper">
+  <!-- Main Home Section -->
+  <section class="home-section">
 
-    <!-- Navbar -->
-    <nav class="bg-green-600 p-4 shadow-lg">
-      <div class="container mx-auto flex justify-between items-center">
-        <h1 class="text-white text-xl font-bold">My Terrace Garden</h1>
-        <ul class="flex space-x-4 text-white">
-          <li><a href="index.html" class="hover:underline">Home</a></li>
-          <li><a href="gallery.html" class="hover:underline">Gallery</a></li>
-          <li><a href="about.html" class="hover:underline">About Us</a></li>
-        </ul>
-      </div>
-    </nav>
+    <div class="welcome-block">
+      <h2 class="text-3xl font-extrabold mb-2">Welcome to My Green Paradise</h2>
+      <p class="mt-2 text-xl font-semibold">Experience the joy and beauty of terrace gardening through my personal green journey!</p>
+    </div>
 
-    <!-- Home Section with Background Image -->
-    <section id="home">
-      <div class="home-text">
-        <h2 class="text-5xl font-extrabold">Welcome to My Green Paradise</h2>
-        <p class="mt-4 text-xl">Here are some beautiful moments from my terrace garden.</p>
-      </div>
+    <div class="garden-info-block">
+      <h3 class="text-2xl font-semibold mb-2">Garden Highlights</h3>
+      <ul class="list-disc ml-5 mt-3 text-lg">
+        <li>Over 30 varieties of flowering plants</li>
+        <li>Dedicated cactus and succulent corner</li>
+        <li>Seasonal fruits and vegetables</li>
+        <li>Eco-friendly and pollinator-friendly practices</li>
+      </ul>
+    </div>
 
-      <!-- Text at Right-Bottom of the Home Section -->
-      <div class="home-text-bottom-right">
-        <p>Gardening is just not a hobby for me — it’s a deep-rooted passion that continues to shape how I live, breathe, and think.</p>
-        <p>The act of nurturing a plant — watering it, pruning it, protecting it from pests — connects me deeply with nature and myself.</p>
-        <p>Gardening isn’t just something I do; it’s become a part of who I am. It reminds me every day that beauty takes time, growth requires care, and sometimes, the best things in life are grown slowly.</p>
-      </div>
-    </section>
+    <div class="quote-block">
+      Gardening is just not a hobby for me — it’s a deep-rooted passion that continues to shape how I live, breathe, and think.<br><br>
+      The act of nurturing a plant — watering it, pruning it, protecting it from pests — connects me deeply with nature and myself.<br>
+      Gardening isn’t just something I do; it’s become a part of who I am. It reminds me every day that beauty takes time, growth requires care, and sometimes, the best things in life are grown slowly.
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 My Terrace Garden | Copyright Reserved @subhrajitbhattacharjee</p>
-    </footer>
-
-  </div>
-
+  <!-- Footer -->
+  <footer class="bg-green-600 text-white text-center p-4 mt-8">
+    <p>&copy; 2025 My Terrace Garden | Copyright Reserved @subhrajitbhattacharjee</p>
+  </footer>
 </body>
 </html>
